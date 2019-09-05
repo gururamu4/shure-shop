@@ -22,22 +22,3 @@ export function usernameValidator(userService:SignupService):AsyncValidatorFn{
     );
   }
 }
-
-@Directive({
-  selector:'[uniqueUsername]',
-  providers:[{provide:NG_ASYNC_VALIDATORS,useExisting:usernameValidatorDirective,multi:true}]
-
-})
-
-export class usernameValidatorDirective implements AsyncValidator{
-  constructor(private userService:SignupService){}
-
-  validate(c:AbstractControl){
-    return this.userService.getUserByUsername(c.value).pipe(
-      map(users=>{
-        console.log(users)
-        return users && users.length>0?{'uniqueUsername':true}:null;
-      })
-    )
-  }
-}
