@@ -1,0 +1,114 @@
+
+ <div class="card1">
+      
+  <mat-card class="app-card">
+      <mat-card-header>
+              <!-- logo image of that product button-->
+              <div mat-card-avatar class="app-header-image"></div>
+              <mat-card-title>{{endProduct.productId}}</mat-card-title>
+              <mat-card-subtitle>{{endProduct.productName }}</mat-card-subtitle>
+      </mat-card-header>
+
+
+      <img mat-card-image [src]="endProduct.imgSrc">
+
+      <!-- amount of that product-->
+      <mat-card-content style="font-weight: bold;font-size: large;text-align: center">
+          {{endProduct.price| currency }}
+      </mat-card-content>
+
+
+      <mat-card-actions  *ngIf="getQuantityProduct(product.productId)==0;else iconShow" >
+        <!-- like button-->
+        <button mat-button class="test" > 
+            <mat-icon style="float: left;"
+            (click)="onClick(product.productId)" 
+            [ngStyle]="{'color':product.isLiked ?  'deeppink' : '#ccc'}">
+                audiotrack
+            </mat-icon>
+                <span class="likes">{{product.totalLikes}}</span>
+        </button>
+        <!-- mic button-->
+        <button mat-button  (click)="onClick1()">
+            <mat-icon style="float: none;" class="mic">mic</mat-icon>
+        </button>
+        <!-- shopping cart button-->
+        <button mat-button> 
+            <mat-icon (click)="plus(endProduct.productId)" style="float: right;" class="mic">shopping_cart
+            </mat-icon>
+          </button>
+        </mat-card-actions>
+
+        <!--ICON SHOW after clicking shopping cart symbol button-->
+         <ng-template #iconShow>
+                <mat-card-actions>
+                        <button mat-button >
+                            <mat-icon (click)="minus(endProduct.productId)">remove_circle_outline</mat-icon>
+                        
+                        </button>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{getQuantityProduct(endProduct.productId)}} in cart
+                        <button mat-button style="float: right;">
+                            <mat-icon (click)="plus(endProduct.productId)">add_circle_outline</mat-icon>
+                        </button>
+                 </mat-card-actions>
+          </ng-template> 
+           
+      
+             
+    </mat-card>
+
+ </div>
+    <div class="card">
+        <div class="heading">
+
+                Features
+        </div>
+        <hr>
+
+            <div class="description">
+                    Exceptional Digital Audio Clarity
+                    The clearest sound from world-renowned Shure microphones with proprietary Shure digital wireless technology.        
+            </div>
+
+            <div class="heading">
+
+                    Intelligent Rechargeability
+    </div>
+    <hr>
+    <div class="description">
+            Proprietary Lithium-ion rechargeable batteries with accurate battery metering for up to 16 hours of use when fully charged.
+        </div>
+<hr>
+    <div class="heading"> 
+        Rock-Solid RF Performance for Multiple System Installations
+        </div>
+        <hr>
+        <div class="description">
+                GLX-D Frequency Managers provide improved RF performance, antenna distribution and seamless frequency management for up to 9 GLX-D Advanced rack mount systems in typical environments (11 under optimal conditions).
+            </div>
+
+    <div class="heading"> 
+            Automatic Frequency Management
+        </div>
+        <hr>
+    <div class="description">
+            Linked GLX-D Advanced wireless receiver communities easily identify and continuously move away from interference, finding the clearest channels for all systems.
+        </div>
+
+    <div class="heading"> 
+        Rack-Mountable for Multi-System Efficiency
+    </div>
+    <hr>
+    <div class="description">
+            Included mounting hardware and detachable antennas make it easy to install multiple GLXD4R rack mount receiver systems.
+        </div>
+        <div class="heading"> 
+                Full Accessory Suite for Remote Antenna Management
+            </div>
+            <hr>
+            <div class="description">
+                    Frequency managers, directional antennas, antenna splitters and remote mounting accessories are available to maximize system performance in various environments.
+                </div>
+                     
+         </div>

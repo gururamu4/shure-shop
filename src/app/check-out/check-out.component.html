@@ -1,0 +1,98 @@
+
+
+<div class="card1"> 
+   <mat-vertical-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        
+        <ng-template matStepLabel>
+          Fill out your name</ng-template>
+        <mat-form-field>
+         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Address</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Area And Street" formControlName="address" required>
+        </mat-form-field>
+        <ng-template matStepLabel>Mobile Number</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="enter your phone number" formControlName="phone" required>
+        </mat-form-field>
+        <ng-template matStepLabel>City</ng-template>
+        <mat-form-field>
+          <input matInput type="text" placeholder="enter City/District/Town" required formControlName="city">
+        </mat-form-field>
+        <ng-template>PinCode</ng-template>
+        <mat-form-field>
+          <input type="text" placeholder="PinCode" formControlName="pincode" matInput required>
+        </mat-form-field>
+        <ng-template>LandMark</ng-template>
+        <mat-form-field>
+            <input type="text" placeholder="LandMark (optional)" matInput formControlName="landmark">
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+   
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+  
+  <mat-icon color="accent">local_shipping</mat-icon> 
+  
+  <button mat-raised-button color="accent" class="disable" color="warn" *ngIf="!secondFormGroup.valid" >Place My Order</button>
+  
+  
+  <button mat-raised-button color="accent" color="accent" *ngIf="secondFormGroup.valid" (click)="placeOrder()">Place My Order</button>
+ <div class="icon"> 
+    <mat-icon color="accent" *ngIf="clicked" @fade1>flight_takeoff</mat-icon>
+</div>
+</div>
+<div class="card">
+  <mat-card>
+    <mat-list>
+          
+        <mat-list-item style="padding: 20px 0">
+            <mat-icon color="accent" style="padding-right: 20px;">shopping_basket</mat-icon>
+       
+          Price( {{totalQuantity}} ITEMS) 
+          <div style="padding-left:35%;">
+            {{totalPrice|currency}}
+          </div>
+        </mat-list-item>
+        <mat-list-item style="padding: 20px 0">
+        <mat-icon color="accent" style="padding-right: 20px">flight_takeoff</mat-icon>
+          Delivery charges 
+            <div style="padding-left:35%;">
+              {{delieveryCharges|currency}}
+            </div>
+          </mat-list-item>
+         
+        <mat-divider></mat-divider>
+        <mat-list-item style="padding: 20px 0">
+            <mat-icon color="accent" style="padding-right: 20px">loyalty</mat-icon>
+          Total charges 
+            <div style="padding-left:40%;">
+              {{delieveryCharges+totalPrice|currency}}
+            </div>
+          </mat-list-item>
+      </mat-list>
+    </mat-card>       
+     </div>

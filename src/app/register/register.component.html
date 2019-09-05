@@ -1,0 +1,56 @@
+<form [formGroup]="registrationForm">
+        <div  style="text-align:center" class="app-container">
+        <mat-form-field>
+          <input matInput required name="email" width=70% placeholder="Enter valid EmailId" formControlName="email" type="email">
+          <mat-error *ngIf="email.touched&&!email.valid">
+            <mat-error *ngIf="email.hasError('minlength')">
+              minimum length property not met
+            </mat-error>
+            <mat-error *ngIf="email.hasError('pattern')">
+                invalid EMAIL Format
+              </mat-error>
+          </mat-error>
+          <mat-hint>enter correct email format</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput  name="username" placeholder="Username"  formControlName="username"  width=70% >
+          <mat-error *ngIf="username.touched && !username.valid">
+            <mat-error *ngIf="username.hasError('minlength')">min 4 chars</mat-error>
+            <mat-error *ngIf="username.hasError('pattern')">
+              should contain pre defined
+            </mat-error>
+            <mat-error *ngIf="username.hasError('maxlength')">max 15 chars</mat-error>
+          </mat-error>
+          <mat-hint>one special characters,alphanumeric with one capital</mat-hint>
+          </mat-form-field>
+          <mat-form-field >
+              <input matInput type="password" name="password" formControlName="password"  width=70% placeholder="Enter valid password">
+            </mat-form-field>
+            <mat-form-field >
+                <input matInput type="password" name="password1" formControlName="password1"  width=70% placeholder="Confirm Ur password">
+              </mat-form-field>
+            <mat-form-field >
+                <input matInput required name="url" formControlName="url"  width=70% placeholder="Enter valid imgUrl">
+             
+              </mat-form-field>
+        <mat-form-field>
+          <mat-select required name="age" formControlName="age" placeholder="Select me">
+            <mat-option value="90s kids">1990-2000</mat-option>
+            <mat-option value="90s kids">1980-1990</mat-option>
+            <mat-option value="90s kids">1970-1980</mat-option>
+            <mat-option value="90s kids">2000</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+          <mat-error *ngIf="password.touched && password1.touched && password.value!=password1.value">
+            passwords dont match
+          </mat-error>
+
+        <button  mat-raised-button color="accent" (click)="RegisterNewUser()" >Register</button>
+
+      </div>
+        </form>
+
+        

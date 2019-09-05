@@ -1,0 +1,28 @@
+
+
+
+.card {
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  position: relative;
+  width: 200;
+  width:50%;
+  margin: 3em
+}
+.card1{
+  border-radius: 2px;
+  display: inline-block;
+  height: 200px;
+  position: relative;
+  width: 500px;
+}
+.heading{
+  font-family: cursive;
+  font-size: 100%;
+  padding-top: 25px;
+}
+
+/* .description{
+
+} */

@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+img
+{
+  width:32px;
+  height: 32px;
+  border-radius: 50%;
+}.mat-sort-header-container {
+align-items: center;
+}
+.mat1:hover::before{
+  content:'Edit'; 
+}

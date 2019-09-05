@@ -1,0 +1,77 @@
+
+
+.card {
+    border-radius: 2px;
+    height: 300px;
+    margin: 3rem;
+    position: relative;
+    width: 25%;
+    float:right;
+  }
+  .card1{
+    padding-top: 0;
+    border-radius: 2px;
+    display: inline-block;
+    height: 200px;
+    margin: 2rem;
+    position: relative;
+    width: 50%;
+    padding-top:0
+  }
+  .heading{
+    font-family: cursive;
+    font-size: 100%;
+    padding-top: 25px;
+  }
+  mat-form-field{
+    width:75%;
+  }
+  mat-slider{
+    width:75%;
+  }
+  .icon{
+    width: 200%;
+    height: 200%;
+    
+    font-size: 300%
+  }
+
+.disable{
+  cursor: not-allowed;
+}
+
+
+
+.card {
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  position: relative;
+  width: 200;
+  width:22%;
+  margin: 3em
+}
+.card1{
+  padding-top: 0;
+  border-radius: 2px;
+  display: inline-block;
+  height: 200px;
+  position: relative;
+  width: 60%;
+}
+.heading{
+  font-family: cursive;
+  font-size: 100%;
+  padding-top: 25px;
+}
+.app-header-image {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk4NMHqbfe0ncWc3KWDAQZ3A39L-HYptFwAwblcziFa8uWZj9d');
+  background-size: cover;
+}
+
+/* .description{
+
+} */
+  /* .description{
+  
+  } */
