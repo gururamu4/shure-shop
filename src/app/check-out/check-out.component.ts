@@ -18,15 +18,15 @@ import { cart } from '../models/cart';
 export class CheckOutComponent implements OnInit {
 
   constructor( private router:Router, private _formBuilder:FormBuilder,private service:HomeService,private store:Store<cart> ) { }
-private firstFormGroup: FormGroup;
-private secondFormGroup: FormGroup;
-private totalQuantity:number;
-private delieveryCharges:number=99;
+firstFormGroup: FormGroup;
+secondFormGroup: FormGroup;
+totalQuantity:number;
+delieveryCharges:number=99;
 
 private  cart
 
 currentUser=JSON.parse(localStorage.getItem('currentUser')||null)
-  private get totalPrice():number{
+  get totalPrice():number{
     let price=0;
     for(let item of this.cart){
       if(item.userId==this.currentUser){

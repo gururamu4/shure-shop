@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
   
   
   userList=[];
-  private pass=true;
-  private hide(){
+  pass=true;
+  hide(){
     this.pass=!this.pass;
 }
   ngOnInit() {
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
    } get password(){
     return this.loginForm.get('password');
   }
- private login():boolean{
+ login():boolean{
    var password = "testpassword";
    let result=false;
     for(let userL of this.userList) {

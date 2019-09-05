@@ -17,8 +17,8 @@ import { Observable } from 'rxjs';
 })
 export class AdminProductsComponent implements OnInit {
   constructor(private router: Router, private store: Store<any>,private snackBar:MatSnackBar) {}
-  private productList;
-  products$;private dataSource
+  productList;
+  products$;dataSource
   ngOnInit() {
     this.store.dispatch(new productActions.LoadProducts());
     this.productList= this.store.pipe(select(fromProduct.getProducts));
@@ -27,14 +27,14 @@ export class AdminProductsComponent implements OnInit {
     })
      this.dataSource= this.productList;
   }
-  private displayedColumns: string[] = ["id", "name", "price", "editorials"];
+  displayedColumns: string[] = ["id", "name", "price", "editorials"];
 
   private edit(productId): void {
    
     this.store.dispatch(new productActions.LoadProduct(productId));
     this.router.navigate(['admin/products',productId])
   }
-  private addP(): void {
+  addP(): void {
     this.router.navigate(["admin/products/new"]);
   }
   private delete(productId): void {

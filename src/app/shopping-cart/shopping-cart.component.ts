@@ -18,8 +18,8 @@ import * as fromUser from '../store/user.reducer'
 })
 export class ShoppingCartComponent implements OnInit {
 
-private cart1;
-private displayedColumns: string[] = ['pId', 'quantity', 'price', 'price*quantity'];
+cart1;
+displayedColumns: string[] = ['pId', 'quantity', 'price', 'price*quantity'];
 private cart:any;
 private currentUser;
 

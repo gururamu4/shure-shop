@@ -23,7 +23,7 @@ import { cart } from "src/app/models/cart";
 })
 export class MyOrdersComponent implements OnInit {
   // use access specifiers
- private  displayedColumns: string[] = [
+  displayedColumns: string[] = [
     "pId",
     "quantity",
     "price",
@@ -35,7 +35,7 @@ export class MyOrdersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
  private cart=[];
-private cart1;
+cart1;
 private currentDate;
   constructor(private route: Router,private store:Store<cart>) {
   }

@@ -21,8 +21,8 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {
   }
- private clicked=false;
-private placeOrder():boolean{
+ clicked=false;
+placeOrder():boolean{
   let cart;
   this.store.pipe(select(fromCart.getCarts)).subscribe(res=>cart=res);
   let currentUser=JSON.parse(localStorage.getItem('currentUser')||null);

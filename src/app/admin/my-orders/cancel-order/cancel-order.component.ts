@@ -58,8 +58,8 @@ export class CancelOrderComponent implements OnInit {
       payment: ["", Validators.required]
     });
   }
-  private clicked = false;
-  private cancelOrder() {
+  clicked = false;
+  cancelOrder() {
     console.log(this.currentProduct)
     this.store.dispatch(new orderActions.DeleteOrder(this.currentProduct.id))
     alert('suuccess');

@@ -53,7 +53,7 @@ public prices = [
     {value: [100,500], viewValue: '100 to 500'},
     {value: [500,1000], viewValue: '500 to 1000'}
   ];
-  private categories=['mic','earphone','speaker']
+  categories=['mic','earphone','speaker']
    @ViewChild(MatPaginator) paginator: MatPaginator;
    @ViewChild(MatSort) sort: MatSort;
  private productDescription(pId):boolean{
@@ -66,7 +66,7 @@ public prices = [
 private categoryFilter(category){ 
   this.list=this.service.categoryFilter(category)
 }
- private dateFilter(){
+ dateFilter(){
     this.list=_.orderBy(this.list,function(n){
       return n.createdDate;
     },"desc")

@@ -12,7 +12,7 @@ import * as userActions from '../store/user.action'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private registrationForm;
+  registrationForm;
   constructor(private router: Router,
     private service: RegisterService, private fb: FormBuilder,
     private store: Store<User>
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
   private get age(): number {
     return this.registrationForm.get('age')
   }
-  private get email(): string {
+  get email(): string {
     return this.registrationForm.get('email')
   }
   // uniqueness=false;
