@@ -75,7 +75,7 @@ private onAdminOrder(){
     );
   }
  private otherTheme: boolean = false;
- private changeTheme():boolean {
+  changeTheme():boolean {
     this.otherTheme = !this.otherTheme;
     sessionStorage.setItem("otherTheme", JSON.stringify(this.otherTheme));
     return this.otherTheme;

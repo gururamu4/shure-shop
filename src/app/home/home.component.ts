@@ -48,7 +48,7 @@ export class HomeComponent  implements OnInit {
 //private counts=0;
    private count:BehaviorSubject<number>=new BehaviorSubject<number>(0);
 private currentCount:Observable<number>=this.count.asObservable();
-private prices = [
+public prices = [
     {value: [0,100], viewValue: '0 to 100'},
     {value: [100,500], viewValue: '100 to 500'},
     {value: [500,1000], viewValue: '500 to 1000'}
@@ -99,7 +99,7 @@ private displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 private shoppingCart;
 private pTry=[];
 private list=[];
-private search=null;
+search=null;
 products$;
 carts$;
  ngOnInit() {
