@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
   // }
   ngOnInit() {
   }
-  private RegisterNewUser() {
+  RegisterNewUser() {
     let newUser = {
       id: Math.floor(Math.random() * 1000000),
       email: this.registrationForm.get('email').value,
