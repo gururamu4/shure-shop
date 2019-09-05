@@ -25,8 +25,8 @@ export class CancelOrderComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  private payments:string[] = ["amazonPay", "payPal", "Phonepe"];
-  private currentProduct;
+  payments:string[] = ["amazonPay", "payPal", "Phonepe"];
+  currentProduct;
   private routingParams;
   ngOnInit() {
     this.route.params.subscribe(value => {
