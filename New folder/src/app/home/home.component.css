@@ -1,0 +1,129 @@
+
+table {
+  width: 100%;
+}
+.toggle{
+  font-size : 250%;
+  padding-right:100px;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.hello{
+  border-radius:80%;
+  height:48px;
+  width:48px;
+}
+.image1{
+  height:190px ;  
+    width: calc(100% + 32px);
+}
+.card {
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 3rem;
+  position: relative;
+  width: 300px;
+}
+mat-icon:hover{
+  color:rgb(58, 183, 141);
+}
+.app-header-image {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk4NMHqbfe0ncWc3KWDAQZ3A39L-HYptFwAwblcziFa8uWZj9d');
+  background-size: cover;
+}
+.nbs{
+  padding-right:50px;
+}
+/* <!-- <div class="card card-1">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>SHURE 5575LE</mat-card-title>
+          <mat-card-subtitle>Unidyne Cardioid Dynamic Microphone</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://media.glassdoor.com/l/8c/2a/f4/83/shure-celebrated-the-75th-anniversary-of-one-of-our-most-iconic-products.jpg" >
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button> 
+              <mat-icon
+               (click)="onClick()" 
+              [ngClass]="{'active': isActive}" 
+               [ngStyle]="{'color':isActive ?  'deeppink' : '#ccc'}">
+                audiotrack{{totalLikes}}
+              </mat-icon>
+            </button>
+            
+            <button mat-button>
+                <mat-icon>mic</mat-icon>
+            </button>
+            <button mat-button> 
+                <mat-icon>shopping_cart
+                </mat-icon>
+              </button>
+          </mat-card-actions>
+      </mat-card>
+</div>
+<div class="card card-2">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shure SRH145</mat-card-title>
+          <mat-card-subtitle>Professional Headset</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://icdn5.digitaltrends.com/image/shure-srh145-open-side-640x640.jpg?ver=1" >
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button> 
+              <mat-icon
+               (click)="onClick()" 
+              [ngClass]="{'active': isActive}" 
+               [ngStyle]="{'color':isActive ?  'deeppink' : '#ccc'}">
+                audiotrack
+              </mat-icon>{{totalLikes}}
+            </button>
+            
+            <button mat-button>
+                <mat-icon>mic</mat-icon>
+            </button>
+            <button mat-button> 
+                <mat-icon>shopping_cart
+                </mat-icon>
+              </button>
+          </mat-card-actions>
+      </mat-card>
+</div>
+<div class="card card-3">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shure A44ASC</mat-card-title>
+          <mat-card-subtitle>Microphone Carrying Phone</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="data:image/jpeg;base64,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" >
+        <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-button> 
+                <mat-icon
+                 (click)="onClick()" 
+                [ngClass]="{'active': isActive}" 
+                 [ngStyle]="{'color':isActive ?  'deeppink' : '#ccc'}">
+                  audiotrack
+                </mat-icon>{{totalLikes}}
+              </button>
+              
+              <button mat-button>
+                  <mat-icon>mic</mat-icon>
+              </button>
+              <button mat-button> 
+                  <mat-icon>shopping_cart
+                  </mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+</div> --> */

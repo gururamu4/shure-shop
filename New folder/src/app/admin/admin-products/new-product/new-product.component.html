@@ -1,0 +1,53 @@
+<div class="card1">
+        <form #f="ngForm" (ngSubmit)="add(f.value)">
+            <div  style="text-align:center" class="example-container">
+                <mat-form-field>
+                  <label for="productName">
+                    <input  matInput required #productName="ngModel" ngModel name="productName" placeholder="enter product name">
+                  </label>
+                  </mat-form-field>
+                <br><br>
+                  <mat-form-field>
+                      <input matInput required #productId="ngModel"  ngModel name="productId" placeholder="enter product id">
+                    </mat-form-field>
+                    <br><br>
+                    <mat-form-field>
+                      <input matInput required #price="ngModel"  ngModel  name="price" placeholder="enter product price">
+                    </mat-form-field>
+                    <br><br>
+                    <mat-form-field>
+                        <input matInput required #imgSrc="ngModel"  ngModel  name="imgSrc"  placeholder="enter product Image Url">
+                      </mat-form-field>
+                      <br><br>
+                    <mat-form-field>
+                      <mat-select ngModel #category="ngModel" name="category" placeholder="enter Category">
+                        <mat-option value="mic">Mic</mat-option>
+                        <mat-option value="speaker">Speakers</mat-option>
+                        <mat-option value="earphone">EarPhone</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+          <br><br>
+          <button mat-raised-button color="warn" *ngIf="!f.valid" class="warn">add1</button>
+            <button mat-raised-button *ngIf="f.valid" color="accent">add</button>
+             </div>
+            </form>
+          </div>
+            <div class="card" >
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>{{productName.value}}</mat-card-title>
+                      <mat-card-title>{{productId.value}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="imgSrc.value"
+                     >
+                    <mat-card-content>{{price.value|currency}}
+                    </mat-card-content>
+                  </mat-card>
+            </div>
+
+            <!-- <div *ngFor="let products of currentProduct|async">
+               <div  *ngFor="let product of products"> 
+                  {{product.productId}}
+              </div> 
+             </div> -->

@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+  }
+  .proceed{
+    padding-top: 20px;
+    text-align: center;
+
+  }  
+  img
+  {
+    width:32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  .mat-sort-header-container {
+  align-items: center;
+}

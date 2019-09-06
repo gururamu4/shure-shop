@@ -1,0 +1,67 @@
+
+span{
+    cursor: pointer
+}
+/* You can add global styles to this file, and also import other style files */
+/* .search{
+  color:purple;
+  background-color: white;
+  border-radius: 50%;
+} */
+  
+  .app-spacer {
+    flex: 1 1 auto;
+  }
+ .mat-button{
+    border:0;
+  }
+  .dp {height: 32px;
+    width: 32px;
+    border-radius: 50%
+  }
+  .logo{
+    height:50px;
+  }
+  .class1{
+    background-color:#69f0ae;
+  }
+
+  mat-sidenav-content{
+    margin: 0;
+    background: url("https://pls.messefrankfurt.com/content/dam/messefrankfurt-redaktion/prolight-sound/keyvisuals/PLS-Keyvisual-Small.jpg") repeat-x;
+    border: 2px solid black;
+   padding: 25px;
+   background-size: auto; 
+   opacity: .85;
+   min-height:720px;
+   width: 97%;
+   background-color: dodgerblue;
+   color:white;
+   border: 0%;
+   /* Center and scale the image nicely */
+   background-position: center;
+   background-size: cover;
+   margin: 2px;
+
+  }
+  mat-sidenav {
+    width: 15%;
+  }
+  mat-nav-list{
+    padding-top:50px;
+    padding-left:30px;
+  }
+  .mli{
+    padding-top:50px;
+    font-size: 150%
+  }
+  mat-list-item{
+    
+    padding-top:50px;
+  }
+  
+  /*
+  .mat-button:hover{
+    color:#673AB7;
+    background-color:#ddd;
+  } */
