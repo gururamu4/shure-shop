@@ -1,5 +1,5 @@
-import {Product} from '../models/products'
+import { Product } from '../models/products'
 
-export interface AppState{
-    readonly products:Product[]
+export interface AppState {
+    readonly products: Product[]
 }

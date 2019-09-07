@@ -15,12 +15,12 @@ export class orderEffect {
   constructor(
     private actions$: Actions,
     private orderService: orderService
-  ) {}
+  ) { }
 
   @Effect()
   loadOrders$: Observable<Action> = this.actions$.pipe(
     ofType<orderAction.LoadOrders>(
-        orderAction.OrderAction.LOAD_ORDERS
+      orderAction.OrderAction.LOAD_ORDERS
     ),
     mergeMap((action: orderAction.LoadOrders) =>
       this.orderService.getOrders().pipe(
@@ -34,34 +34,34 @@ export class orderEffect {
   );
 
   @Effect()
-  deleteOrder$=this.actions$.pipe(
+  deleteOrder$ = this.actions$.pipe(
     ofType<orderAction.DeleteOrder>(
       orderAction.OrderAction.DELETE_ORDER
     ),
-    map((action:orderAction.DeleteOrder)=>action.payload),
-    mergeMap((id:string)=>
-    this.orderService.deleteOrder(id).pipe(
-      map(()=>new orderAction.DeleteOrderSuccess(id)),
-      catchError(err=>of(new orderAction.DeleteOrderFail(err)))
-    )
+    map((action: orderAction.DeleteOrder) => action.payload),
+    mergeMap((id: string) =>
+      this.orderService.deleteOrder(id).pipe(
+        map(() => new orderAction.DeleteOrderSuccess(id)),
+        catchError(err => of(new orderAction.DeleteOrderFail(err)))
+      )
     )
   );
 
-//   @Effect()
-//   loadCustomer$: Observable<Action> = this.actions$.pipe(
-//     ofType<orderAction.LoadProduct>(
-//       productActions.ProductActions.LOAD_PRODUCT
-//     ),
-//     mergeMap((action: productActions.LoadProduct) =>
-//       this.orderService.getCustomerById(action.payload).pipe(
-//         map(
-//           (product: product) =>
-//             new productActions.LoadProductSuccess(product)
-//         ),
-//         catchError(err => of(new productActions.LoadProductFail(err)))
-//       )
-//     )
-//   );
+  //   @Effect()
+  //   loadCustomer$: Observable<Action> = this.actions$.pipe(
+  //     ofType<orderAction.LoadProduct>(
+  //       productActions.ProductActions.LOAD_PRODUCT
+  //     ),
+  //     mergeMap((action: productActions.LoadProduct) =>
+  //       this.orderService.getCustomerById(action.payload).pipe(
+  //         map(
+  //           (product: product) =>
+  //             new productActions.LoadProductSuccess(product)
+  //         ),
+  //         catchError(err => of(new productActions.LoadProductFail(err)))
+  //       )
+  //     )
+  //   );
   // @Effect()
   // addProdct$:Observable<Action>=this.actions$.pipe(
   //   ofType<orderAction.AddProduct>(productActions.ProductActions.ADD_PRODUCT),
@@ -77,12 +77,12 @@ export class orderEffect {
   // );
 
   @Effect()
-  addOrder$:Observable<Action>=this.actions$.pipe(
+  addOrder$: Observable<Action> = this.actions$.pipe(
     ofType<orderAction.AddOrder>(orderAction.OrderAction.ADD_ORDER),
-    map((action:orderAction.AddOrder)=>action.payload),
-    mergeMap((order:order)=>this.orderService.createOrder(order)),
-    map((neworder:order)=>
-    new orderAction.AddOrderSuccess(neworder)
+    map((action: orderAction.AddOrder) => action.payload),
+    mergeMap((order: order) => this.orderService.createOrder(order)),
+    map((neworder: order) =>
+      new orderAction.AddOrderSuccess(neworder)
     )
   )
   @Effect()

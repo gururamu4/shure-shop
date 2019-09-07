@@ -1,63 +1,90 @@
+<form [formGroup]="loginForm">
+  <div style="text-align:center" class="app-container">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="username"
+        name="username"
+        id="username"
+        width="50%"
+        required
+        uniqueUsername
+        placeholder="Enter Username"
+      />
 
-    <form [formGroup]="loginForm">
-<div  style="text-align:center" class="app-container">
-<mat-form-field >
-  <input matInput 
-   formControlName="username"
-    name="username"
-    id="username"
-    width=50%
-    required
-    uniqueUsername
-    placeholder="Enter Username">
-    
-  <mat-hint color="warn" *ngIf="!username.valid && username.touched"
-   align="center" >
-   
-  
-    <mat-error *ngIf="username.hasError('minlength')">
-    min 4 chars
-   </mat-error>
-   <mat-error *ngIf="username.hasError('maxlength')">
-    max 15 chars
-   </mat-error>
-   <mat-error  *ngIf="username.hasError('cannotContainSpace')">
-    cannot contain space
-   </mat-error>
-   
-   </mat-hint>
+      <mat-hint
+        color="warn"
+        *ngIf="!username.valid && username.touched"
+        align="center"
+      >
+        <mat-error *ngIf="username.hasError('minlength')">
+          min 4 chars
+        </mat-error>
+        <mat-error *ngIf="username.hasError('maxlength')">
+          max 15 chars
+        </mat-error>
+        <mat-error *ngIf="username.hasError('cannotContainSpace')">
+          cannot contain space
+        </mat-error>
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="password"
+        name="password"
+        id="password"
+        width="50%"
+        required
+        placeholder="Enter password"
+        type="{{ pass ? 'password' : 'text' }}"
+      />
+      <mat-icon matSuffix (click)="hide()">visibility</mat-icon>
+      <mat-hint
+        color="warn"
+        *ngIf="!password.valid && password.touched"
+        align="center"
+      >
+        <mat-error *ngIf="password.hasError('minlength')">
+          min 4 chars
+        </mat-error>
+        <mat-error *ngIf="password.hasError('maxlength')">
+          max 15 chars
+        </mat-error>
+      </mat-hint>
+    </mat-form-field>
+    <mat-error
+      class="warn"
+      *ngIf="
+        (username.touched && !username.valid) ||
+        (!password.valid && password.touched) ||
+        !result
+      "
+    >
+      WRONG USERNAME OR PASSWORD
+    </mat-error>
 
-</mat-form-field>
-<mat-form-field>
-    <input matInput
-     formControlName="password"
-      name="password"
-      id="password"
-       width=50% 
-       required
-       placeholder="Enter password"
-       type="{{pass ? 'password' : 'text' }}">
-       <mat-icon matSuffix (click)="hide()">visibility</mat-icon>
-    <mat-hint color="warn" *ngIf="!password.valid && password.touched"
-    align="center" >
-      <mat-error *ngIf="password.hasError('minlength')">
-        min 4 chars
-       </mat-error>
-       <mat-error *ngIf="password.hasError('maxlength')">
-        max 15 chars
-       </mat-error>
-    </mat-hint>
-   
-  </mat-form-field>
-<mat-error class="warn" *ngIf="username.touched&&!username.valid||!password.valid&&password.touched">
-  WRONG USERNAME OR PASSWORD
-</mat-error>
-<button  (click)="login()" mat-flat-button color="accent" >login
-</button>
-<br>
-<br>
+    <button
+      color="warn"
+      style="cursor: not-allowed"
+      *ngIf="!loginForm.valid"
+      mat-flat-button
+    >
+      login
+    </button>
+    <button
+      (click)="login()"
+      color="accent"
+      *ngIf="loginForm.valid"
+      mat-flat-button
+    >
+      login
+    </button>
+    <br />
+    <br />
 
-<button  mat-raised-button color="accent" routerLink="/register">New User?Register now</button>
-</div>
+    <button mat-raised-button color="accent" routerLink="/register">
+      New User?Register now
+    </button>
+  </div>
 </form>
-

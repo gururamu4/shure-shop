@@ -43,8 +43,8 @@ export function orderReducer(
         loaded: true
       });
     }
-    case orderAction.OrderAction.LOAD_ORDERS_FAIL :{
-             return {
+    case orderAction.OrderAction.LOAD_ORDERS_FAIL: {
+      return {
         ...state,
         entities: {},
         loading: false,
@@ -53,33 +53,33 @@ export function orderReducer(
       };
     }
 
-   case orderAction.OrderAction.ADD_ORDER_SUCCESS:{
-     return orderAdapter.addOne(action.payload,state);
-   }
-   case orderAction.OrderAction.ADD_ORDER_FAIL:{
-     return {
-       ...state,
-       error:action.payload
-     }
-   }  
-     case orderAction.OrderAction.UPDATE_ORDER_SUCCESS: {
-    return orderAdapter.updateOne(action.payload, state);
-  }
-  case orderAction.OrderAction.UPDATE_ORDER_FAIL: {
-    return {
-      ...state,
-      error: action.payload
-    };
-  }  
-  case orderAction.OrderAction.DELETE_ORDER_SUCCESS:{
-    return orderAdapter.removeOne(action.payload,state);
-  }
-  case orderAction.OrderAction.DELETE_ORDER_FAIL:{
-    return {
-      ...state,
-      error:action.payload
+    case orderAction.OrderAction.ADD_ORDER_SUCCESS: {
+      return orderAdapter.addOne(action.payload, state);
     }
-  }
+    case orderAction.OrderAction.ADD_ORDER_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+    case orderAction.OrderAction.UPDATE_ORDER_SUCCESS: {
+      return orderAdapter.updateOne(action.payload, state);
+    }
+    case orderAction.OrderAction.UPDATE_ORDER_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      };
+    }
+    case orderAction.OrderAction.DELETE_ORDER_SUCCESS: {
+      return orderAdapter.removeOne(action.payload, state);
+    }
+    case orderAction.OrderAction.DELETE_ORDER_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
 
     default: {
       return state;

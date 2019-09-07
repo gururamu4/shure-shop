@@ -38,15 +38,15 @@ export function productReducer(
 ): ProductState {
   switch (action.type) {
     case productActions.ProductActions.LOAD_PRODUCTS_SUCCESS: {
-     
+
       return productsAdapter.addAll(action.payload, {
         ...state,
         loading: false,
         loaded: true
       });
     }
-    case productActions.ProductActions.LOAD_PRODUCTS_FAIL :{
-             return {
+    case productActions.ProductActions.LOAD_PRODUCTS_FAIL: {
+      return {
         ...state,
         entities: {},
         loading: false,
@@ -55,45 +55,45 @@ export function productReducer(
       };
     }
 
-  case productActions.ProductActions.DELETE_PRODUCTS_SUCCESS:{
-    return productsAdapter.removeOne(action.payload,state);
-  }
-  case productActions.ProductActions.DELETE_PRODUCTS_FAIL:{
-    return {
-      ...state,
-      error:action.payload
+    case productActions.ProductActions.DELETE_PRODUCTS_SUCCESS: {
+      return productsAdapter.removeOne(action.payload, state);
     }
-  }
-   case productActions.ProductActions.LOAD_PRODUCT_SUCCESS:{
-    return productsAdapter.addOne(action.payload,{
-      ...state,
-      selectedProductId:action.payload.id
-    })
-   }
-   case productActions.ProductActions.LOAD_PRODUCTS_FAIL:{
-    return {
-       ...state,
-       error:action.payload
-     }
-   }
-   case productActions.ProductActions.ADD_PRODUCT_SUCCESS:{
-     return productsAdapter.addOne(action.payload,state);
-   }
-   case productActions.ProductActions.ADD_PRODUCT_FAIL:{
-     return {
-       ...state,
-       error:action.payload
-     }
-   }  
-     case productActions.ProductActions.UPDATE_PRODUCT_SUCCESS: {
-    return productsAdapter.updateOne(action.payload, state);
-  }
-  case productActions.ProductActions.UPDATE_PRODUCT_FAIL: {
-    return {
-      ...state,
-      error: action.payload
-    };
-  }
+    case productActions.ProductActions.DELETE_PRODUCTS_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+    case productActions.ProductActions.LOAD_PRODUCT_SUCCESS: {
+      return productsAdapter.addOne(action.payload, {
+        ...state,
+        selectedProductId: action.payload.id
+      })
+    }
+    case productActions.ProductActions.LOAD_PRODUCTS_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+    case productActions.ProductActions.ADD_PRODUCT_SUCCESS: {
+      return productsAdapter.addOne(action.payload, state);
+    }
+    case productActions.ProductActions.ADD_PRODUCT_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+    case productActions.ProductActions.UPDATE_PRODUCT_SUCCESS: {
+      return productsAdapter.updateOne(action.payload, state);
+    }
+    case productActions.ProductActions.UPDATE_PRODUCT_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      };
+    }
 
     default: {
       return state;

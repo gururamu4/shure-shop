@@ -5,13 +5,10 @@ import { EntityState, EntityAdapter, createEntityAdapter } from "@ngrx/entity";
 
 import { User } from "../models/user";
 import * as fromRoot from "./product.state";
-import { Action } from "rxjs/internal/scheduler/Action";
-import { stat } from "fs";
-import { state } from "@angular/animations";
 
 export interface UserState extends EntityState<User> {
-  selectedUser:User;
-  selectedUserId:number;
+  selectedUser: User;
+  selectedUserId: number;
   loading: boolean;
   loaded: boolean;
   error: string;
@@ -28,8 +25,8 @@ export const userAdapter: EntityAdapter<User> = createEntityAdapter<
 export const defaultUser: UserState = {
   ids: [],
   entities: {},
-  selectedUser:null,
-  selectedUserId:null,
+  selectedUser: null,
+  selectedUserId: null,
   loading: false,
   loaded: false,
   error: ""
@@ -43,15 +40,15 @@ export function userReducer(
 ): UserState {
   switch (action.type) {
     case userActions.userActions.LOAD_USERS_SUCCESS: {
-     
+
       return userAdapter.addAll(action.payload, {
         ...state,
         loading: false,
         loaded: true
       });
     }
-    case userActions.userActions.LOAD_USERS_FAIL :{
-             return {
+    case userActions.userActions.LOAD_USERS_FAIL: {
+      return {
         ...state,
         entities: {},
         loading: false,
@@ -60,37 +57,37 @@ export function userReducer(
       };
     }
 
-   case userActions.userActions.LOAD_USER_SUCCESS:{
-     
-  if(action.payload!=null){
-      return userAdapter.addOne(action.payload,{
-      ...state,
-      selectedUser:action.payload,
-      selectedUserId:action.payload.id
-    })
-  }
-  else{
-    return initialState;
-  }
-   }
+    case userActions.userActions.LOAD_USER_SUCCESS: {
+
+      if (action.payload != null) {
+        return userAdapter.addOne(action.payload, {
+          ...state,
+          selectedUser: action.payload,
+          selectedUserId: action.payload.id
+        })
+      }
+      else {
+        return initialState;
+      }
+    }
 
 
-   case userActions.userActions.LOAD_USERS_FAIL:{
-    return {
-       ...state,
-       error:action.payload
-     }
-   }
-   case userActions.userActions.ADD_USER_SUCCESS:{
-     return userAdapter.addOne(action.payload,state);
-   }
-   case userActions.userActions.ADD_USER_FAIL:{
-     return {
-       ...state,
-       error:action.payload
-     }
-   }  
- 
+    case userActions.userActions.LOAD_USERS_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+    case userActions.userActions.ADD_USER_SUCCESS: {
+      return userAdapter.addOne(action.payload, state);
+    }
+    case userActions.userActions.ADD_USER_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+
 
     default: {
       return state;
@@ -113,7 +110,7 @@ export const getUsersLoading = createSelector(
 );
 export const getUser = createSelector(
   getUserFeatureState,
-  (state: UserState) =>  state.selectedUser
+  (state: UserState) => state.selectedUser
 
 );
 export const getCurrentUserId = createSelector(

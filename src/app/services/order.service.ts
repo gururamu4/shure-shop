@@ -10,25 +10,21 @@ import { order } from "../../app/models/order";
 })
 export class orderService {
   private ordersUrl = "https://json-be-shure-shop.herokuapp.com/orders";
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getOrders(): Observable<order[]> {
-    console.log('http',this.http.get(this.ordersUrl))
     return this.http.get<order[]>(this.ordersUrl);
   }
-  deleteOrder(id){
+  deleteOrder(id) {
     return this.http.delete(`${this.ordersUrl}/${id}`)
   }
-  getOrderById(id){
-    console.log(this.http.get(`${this.ordersUrl}/${id}`));
-   return this.http.get(`${this.ordersUrl}/${id}`);
-    //console.log()
+  getOrderById(id) {
+    return this.http.get(`${this.ordersUrl}/${id}`);
   }
-  createOrder(product){
-    return this.http.post(this.ordersUrl,product);
-     //console.log()
-   }
-   updateOrder(order: order): Observable<order> {
+  createOrder(product) {
+    return this.http.post(this.ordersUrl, product);
+  }
+  updateOrder(order: order): Observable<order> {
     return this.http.patch<order>(
       `${this.ordersUrl}/${order.id}`,
       order

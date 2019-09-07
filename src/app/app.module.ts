@@ -13,7 +13,7 @@ import { DatePipe } from "@angular/common";
 import { MatSortModule } from "@angular/material/sort";
 import { MatSelectModule } from "@angular/material/select";
 import { MatMenuModule } from "@angular/material/menu";
-import { MatButtonModule, MatToolbarModule ,MatPaginatorModule,MatInputModule,MatFormFieldModule} from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatPaginatorModule, MatInputModule, MatFormFieldModule } from "@angular/material";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatGridListModule } from "@angular/material/grid-list";
@@ -55,7 +55,7 @@ import { StarRatingModule } from "angular-star-rating";
 import { CancelOrderComponent } from "./admin/my-orders/cancel-order/cancel-order.component";
 import { PaymentComponent } from "./check-out/payment/payment.component";
 import { SignupService } from "./login/loginService.service";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 
 import { EffectsModule } from "@ngrx/effects";
@@ -69,83 +69,83 @@ import { userEffect } from "./store/user.effect";
 import { userReducer } from "./store/user.reducer";
 
 @NgModule({
-  declarations: [
-    GrdFilterPipe,
-    AppComponent,
-    BsNavbarComponent,
-    HomeComponent,
-    ShoppingCartComponent,
-    CheckOutComponent,
-    OrderSuccessComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
-    LoginComponent,
-    MyOrdersComponent,
-    RegisterComponent,
-    SelectedComponent,
-    NewProductComponent,
-    ProductsShowComponent,
-    FooterComponent,
-    CancelOrderComponent,
-    PaymentComponent
-  ],
-  imports: [
-    HttpClientModule,
-    HttpModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    StarRatingModule,
-    MatSliderModule,
-    MatListModule,
-    MatDividerModule,
-    MatStepperModule,
-    MatSlideToggleModule,
-    MatSortModule,
-    HttpModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    MatBadgeModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTableModule,
-    MatCardModule,
-    BrowserModule,
-    MatToolbarModule,
-    MatButtonModule,
-    NoopAnimationsModule,
-    MatSelectModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    StoreModule.forRoot({
-      productList: productReducer,
-      carts: cartReducer,
-      userList: userReducer,
-      orders: orderReducer
-    }),
-    StoreDevtoolsModule.instrument({}),
-    EffectsModule.forRoot([
-      productEffect,
-      cartEffect,
-      userEffect,
-      orderEffect
-    ]),
-    RoutingModule
-  ],
+	declarations: [
+		GrdFilterPipe,
+		AppComponent,
+		BsNavbarComponent,
+		HomeComponent,
+		ShoppingCartComponent,
+		CheckOutComponent,
+		OrderSuccessComponent,
+		AdminProductsComponent,
+		AdminOrdersComponent,
+		LoginComponent,
+		MyOrdersComponent,
+		RegisterComponent,
+		SelectedComponent,
+		NewProductComponent,
+		ProductsShowComponent,
+		FooterComponent,
+		CancelOrderComponent,
+		PaymentComponent
+	],
+	imports: [
+		HttpClientModule,
+		HttpModule,
+		MatSnackBarModule,
+		MatSidenavModule,
+		StarRatingModule,
+		MatSliderModule,
+		MatListModule,
+		MatDividerModule,
+		MatStepperModule,
+		MatSlideToggleModule,
+		MatSortModule,
+		HttpModule,
+		ReactiveFormsModule,
+		MatPaginatorModule,
+		MatBadgeModule,
+		MatIconModule,
+		MatMenuModule,
+		MatTableModule,
+		MatCardModule,
+		BrowserModule,
+		MatToolbarModule,
+		MatButtonModule,
+		NoopAnimationsModule,
+		MatSelectModule,
+		MatInputModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		MatGridListModule,
+		MatFormFieldModule,
+		StoreModule.forRoot({
+			productList: productReducer,
+			carts: cartReducer,
+			userList: userReducer,
+			orders: orderReducer
+		}),
+		StoreDevtoolsModule.instrument({}),
+		EffectsModule.forRoot([
+			productEffect,
+			cartEffect,
+			userEffect,
+			orderEffect
+		]),
+		RoutingModule
+	],
 
-  providers: [
-    SignupService,
-    HomeComponent,
-    BsNavbarComponent,
-    HomeService,
-    AuthGaurdService,
-    AuthService,
-    AdminAuthGuard,
-    AdminAuthService,
-    DatePipe
-  ],
-  bootstrap: [AppComponent]
+	providers: [
+		SignupService,
+		HomeComponent,
+		BsNavbarComponent,
+		HomeService,
+		AuthGaurdService,
+		AuthService,
+		AdminAuthGuard,
+		AdminAuthService,
+		DatePipe
+	],
+	bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,21 +1,12 @@
-import { LoadOrders } from './../store/order.action';
 import { HomeService } from "./../services/home.service";
-import { NavBarService } from "./bs-navbar.service";
-import { Component, OnInit, OnChanges } from "@angular/core";
-import { HomeComponent } from "../home/home.component";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, BehaviorSubject } from "rxjs";
-import { of } from "rxjs";
-import { AdminAuthGuard } from "../guard/admin.auth-gaurd.service";
-import { AdminAuthService } from "src/app/guard/admin.auth.service";
 
 import { Store, select } from '@ngrx/store';
 import * as fromUser from './../store/user.reducer'
 import { User } from '../models/user';
 import * as userActions from '../store/user.action';
-
-import * as orderAction from '../store/order.action'
-import * as CryptoJS from "crypto-js";
 
 @Component({
   selector: "navbar",

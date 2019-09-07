@@ -1,19 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Store, select } from "@ngrx/store";
-import { AppState } from '../store/app.state';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 import * as cartActions from "./../store/cart.action"
 import * as fromCart from './../store/cart.reducer'
 
-import * as productActions from "./../store/products.actions"
 import * as fromProduct from './../store/products.reducer'
 
-
 import * as fromUser from '../store/user.reducer'
-import { Product } from '../models/products'
 import { product } from '../models/product';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,9 +33,7 @@ export class HomeService implements OnInit {
 
     let p = this.store.select(fromProduct.getProducts);
     p.subscribe(res => this.list = res)
-    console.log(this.list)
     this.list = this.list.filter(product => product.category === category)
-    console.log(this.list)
     return this.list;
   }
 
@@ -75,8 +70,6 @@ export class HomeService implements OnInit {
       for (let cartQuantity of shoppingCart) {
         if (currentUser == cartQuantity.userId && pId == cartQuantity.pId) {
           q = cartQuantity.quantity;
-          //console.log(q)
-
         }
       }
     }
@@ -100,7 +93,6 @@ export class HomeService implements OnInit {
         if (cart.quantity == 0) {
           this.store.dispatch(new cartActions.DeleteCart(cart.id))
         }
-        console.log('1')
         this.store.dispatch(new cartActions.UpdateCart(cart))
         return true;
       }
@@ -140,7 +132,6 @@ export class HomeService implements OnInit {
           price: product.price
         }
         this.store.dispatch(new cartActions.AddCart(carts))
-        console.log('2')
         return true;
 
       }

@@ -5,7 +5,6 @@ import { fade1 } from 'src/app/animations/animate';
 import * as cartActions from '../../store/cart.action';
 import * as fromCart from "../../store/cart.reducer";
 import * as orderAction from '../../store/order.action';
-import * as fromOrder from "../../store/order.reducer";
 import { Store, select } from "@ngrx/store";
 import { cart } from 'src/app/models/cart';
 

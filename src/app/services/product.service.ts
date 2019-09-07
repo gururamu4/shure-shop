@@ -10,24 +10,21 @@ import { product } from "../../app/models/product";
 })
 export class Productservice {
   private ProductsUrl = "https://json-be-shure-shop.herokuapp.com/productList";
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getProducts(): Observable<product[]> {
     return this.http.get<product[]>(this.ProductsUrl);
   }
-  deleteCustomer(id){
+  deleteCustomer(id) {
     return this.http.delete(`${this.ProductsUrl}/${id}`)
   }
-  getCustomerById(id){
-    console.log(this.http.get(`${this.ProductsUrl}/${id}`));
-   return this.http.get(`${this.ProductsUrl}/${id}`);
-    //console.log()
+  getCustomerById(id) {
+    return this.http.get(`${this.ProductsUrl}/${id}`);
   }
-  createProduct(product){
-    return this.http.post(this.ProductsUrl,product);
-     //console.log()
-   }
-   updateCustomer(product: product): Observable<product> {
+  createProduct(product) {
+    return this.http.post(this.ProductsUrl, product);
+  }
+  updateCustomer(product: product): Observable<product> {
     return this.http.patch<product>(
       `${this.ProductsUrl}/${product.id}`,
       product

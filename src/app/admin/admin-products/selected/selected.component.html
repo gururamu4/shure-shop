@@ -1,43 +1,56 @@
 <div class="card1">
-    <form [formGroup]="selectedProductForm">
-        <div  style="text-align:center" class="example-container">
-            <mat-form-field>
-              <label for="name">
-                <input matInput #name formControlName="name" name="name">
-              </label>
-                
-              </mat-form-field>
-            <br><br>
-              <mat-form-field>
-                  <input matInput #id  formControlName="id" name="id">
-                </mat-form-field>
-                <br><br>
-                <mat-form-field>
-                  <input matInput #price   formControlName="price" name="price" placeholder="enter product price">
-                </mat-form-field>
-                <br><br>
-                <mat-form-field>
-                    <input matInput #imgSrc  formControlName="imgSrc" name="imgSrc"  placeholder="enter product Image Url">
-                  </mat-form-field>
-      <br><br>
+  <form [formGroup]="selectedProductForm">
+    <div style="text-align:center" class="example-container">
+      <mat-form-field>
+        <label for="name">
+          <input matInput #name formControlName="name" name="name" />
+        </label>
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field>
+        <input matInput #id formControlName="id" name="id" />
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field>
+        <input
+          matInput
+          #price
+          formControlName="price"
+          name="price"
+          placeholder="enter product price"
+        />
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field>
+        <input
+          matInput
+          #imgSrc
+          formControlName="imgSrc"
+          name="imgSrc"
+          placeholder="enter product Image Url"
+        />
+      </mat-form-field>
+      <br /><br />
       <!-- <mat-error *ngIf="name.untouched && price.untouched && id.untouched">
           change something!!
         </mat-error> -->
-        <button  mat-raised-button (click)="change()" color="accent">Update Product</button>
-         </div>
-        </form>
-      </div>
-        <div class="card">
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{name.value}}</mat-card-title>
-                  <mat-card-title>{{id.value}}</mat-card-title>
-                </mat-card-header>
+      <button mat-raised-button (click)="change()" color="accent">
+        Update Product
+      </button>
+    </div>
+  </form>
+</div>
+<div class="card">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ name.value }}</mat-card-title>
+      <mat-card-title>{{ id.value }}</mat-card-title>
+    </mat-card-header>
 
-                <img mat-card-image [src]="imgSrc.value">
-                <mat-card-content>
-                {{price.value|currency}}
-                </mat-card-content>
-              </mat-card>
-        </div>
+    <img mat-card-image [src]="imgSrc.value" />
+    <mat-card-content>
+      {{ price.value | currency }}
+    </mat-card-content>
+  </mat-card>
+</div>

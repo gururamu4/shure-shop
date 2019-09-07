@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 
-import { Observable, of, observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { map, mergeMap, catchError } from "rxjs/operators";
 
 import { Productservice } from "../services/product.service";
@@ -15,7 +15,7 @@ export class productEffect {
   constructor(
     private actions$: Actions,
     private productService: Productservice
-  ) {}
+  ) { }
 
   @Effect()
   loadProducts$: Observable<Action> = this.actions$.pipe(
@@ -34,16 +34,16 @@ export class productEffect {
   );
 
   @Effect()
-  deleteProduct$=this.actions$.pipe(
+  deleteProduct$ = this.actions$.pipe(
     ofType<productActions.DeleteProduct>(
       productActions.ProductActions.DELETE_PRODUCTS
     ),
-    map((action:productActions.DeleteProduct)=>action.payload),
-    mergeMap((id:string)=>
-    this.productService.deleteCustomer(id).pipe(
-      map(()=>new productActions.DeleteProductSuccess(id)),
-      catchError(err=>of(new productActions.DeleteProductFail(err)))
-    )
+    map((action: productActions.DeleteProduct) => action.payload),
+    mergeMap((id: string) =>
+      this.productService.deleteCustomer(id).pipe(
+        map(() => new productActions.DeleteProductSuccess(id)),
+        catchError(err => of(new productActions.DeleteProductFail(err)))
+      )
     )
   );
 
@@ -77,12 +77,12 @@ export class productEffect {
   // );
 
   @Effect()
-  addProduct$:Observable<Action>=this.actions$.pipe(
+  addProduct$: Observable<Action> = this.actions$.pipe(
     ofType<productActions.AddProduct>(productActions.ProductActions.ADD_PRODUCT),
-    map((action:productActions.AddProduct)=>action.payload),
-    mergeMap((product:product)=>this.productService.createProduct(product)),
-    map((newProduct:product)=>
-    new productActions.AddProductSuccess(newProduct)
+    map((action: productActions.AddProduct) => action.payload),
+    mergeMap((product: product) => this.productService.createProduct(product)),
+    map((newProduct: product) =>
+      new productActions.AddProductSuccess(newProduct)
     )
   )
   @Effect()

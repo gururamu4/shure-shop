@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 
 
 import * as _ from "lodash";
-import {Store,select} from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import * as orderAction from '../../store/order.action'
 import * as fromOrders from '../../store/order.reducer'
 import * as userAction from '../../store/user.action'
@@ -21,7 +21,7 @@ import { order } from "src/app/models/order";
 })
 export class AdminOrdersComponent implements OnInit {
   // use access specifiers
- displayedColumns: string[] = [
+  displayedColumns: string[] = [
     "userId",
     "pId",
     "quantity",
@@ -33,28 +33,26 @@ export class AdminOrdersComponent implements OnInit {
   ];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
- private cart;
-   cart1;
+  private cart;
+  cart1;
   private currentDate;
-  constructor(private route: Router,private store:Store<order>) {}
+  constructor(private route: Router, private store: Store<order>) { }
 
   ngOnInit() {
-    //this.store.dispatch(new orderAction.LoadOrders())
-    this.store.pipe(select(fromOrders.getOrders)).subscribe(res=>this.cart1=new MatTableDataSource(res));
-    //this.cart1=new MatTableDataSource(this.cart)
+    this.store.pipe(select(fromOrders.getOrders)).subscribe(res => this.cart1 = new MatTableDataSource(res));
     this.cart1.paginator = this.paginator;
     this.cart1.sort = this.sort;
     this.currentDate = new Date().toJSON();
-    
+
   }
-  
+
   applyFilter(filterValue: string) {
     this.cart.filter = filterValue.trim().toLowerCase();
 
   }
-  private cancelOrder(id, date):void {
-    if(id &&date){
-    this.route.navigate(["/my/orders", id, date]);
-  }
+  private cancelOrder(id, date): void {
+    if (id && date) {
+      this.route.navigate(["/my/orders", id, date]);
+    }
   }
 }

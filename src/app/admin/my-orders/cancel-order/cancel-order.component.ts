@@ -1,10 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { HomeService } from "../../../services/home.service";
-import { Product } from "src/app/models/products";
 import { order } from "src/app/models/order";
-import { Store,select } from "@ngrx/store";
+import { Store, select } from "@ngrx/store";
 import * as fromOrders from "../../../store/order.reducer";
 import * as orderActions from '../../../store/order.action'
 
@@ -19,13 +17,12 @@ export class CancelOrderComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private _formBuilder: FormBuilder,
-    private service: HomeService,
-    private store:Store<order>
-  ) {}
+    private store: Store<order>
+  ) { }
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  payments:string[] = ["amazonPay", "payPal", "Phonepe"];
+  payments: string[] = ["amazonPay", "payPal", "Phonepe"];
   currentProduct;
   private routingParams;
   ngOnInit() {
@@ -33,8 +30,8 @@ export class CancelOrderComponent implements OnInit {
       this.routingParams = value;
     });
     let cancelCart;
-    this.store.pipe(select(fromOrders.getOrders)).subscribe(res=>cancelCart=res)
-   
+    this.store.pipe(select(fromOrders.getOrders)).subscribe(res => cancelCart = res)
+
     for (let cart of cancelCart) {
       if (
         cart.pId == this.routingParams.id &&
@@ -63,24 +60,6 @@ export class CancelOrderComponent implements OnInit {
     console.log(this.currentProduct)
     this.store.dispatch(new orderActions.DeleteOrder(this.currentProduct.id))
     alert('suuccess');
-    this.router.navigate(['my/orders'])
-    // let cart = JSON.parse(localStorage.getItem("cart1") || "[]");
-    // let index;
-    // let result = false;
-    // for (let product of cart) {
-    //   if (
-    //     this.routingParams.id == product.pId &&
-    //     this.routingParams.date == product.delieveryDate
-    //   ) {
-    //     result = true;
-    //     index = cart.indexOf(product);
-    //   }
-    // }
-    // if (result == true) {
-    //   cart.splice(index, 1);
-    //   localStorage.setItem("cart1", JSON.stringify(cart));
-    //   alert("Refund Process Started");
-    //   this.router.navigate([""]);
-    // }
+    this.router.navigate(['my/orders']);
   }
 }

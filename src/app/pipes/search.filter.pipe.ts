@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class GrdFilterPipe implements PipeTransform {
   transform(items: any, filter: any, defaultFilter: boolean): any {
-    if (!filter){
+    if (!filter) {
       return items;
     }
 
-    if (!Array.isArray(items)){
+    if (!Array.isArray(items)) {
       return items;
     }
 
@@ -18,8 +18,8 @@ export class GrdFilterPipe implements PipeTransform {
 
       if (defaultFilter) {
         return items.filter(item =>
-            filterKeys.reduce((x, keyName) =>
-                (x && new RegExp(filter[keyName], 'gi').test(item[keyName])) || filter[keyName] == "", true));
+          filterKeys.reduce((x, keyName) =>
+            (x && new RegExp(filter[keyName], 'gi').test(item[keyName])) || filter[keyName] == "", true));
       }
       else {
         return items.filter(item => {

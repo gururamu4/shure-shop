@@ -1,26 +1,27 @@
-
-
-
 .card {
   border-radius: 2px;
   display: inline-block;
   height: 300px;
+  padding-left: 550px;
   position: relative;
   width: 200;
-  width:50%;
-  margin: 3em
+  width: 50%;
+  margin: 3em;
 }
-.card1{
+.card1 {
   border-radius: 2px;
   display: inline-block;
   height: 200px;
-  position: relative;
+  position: absolute;
   width: 500px;
 }
-.heading{
+.heading {
   font-family: cursive;
   font-size: 100%;
   padding-top: 25px;
+}
+:host {
+  color: red;
 }
 
 /* .description{

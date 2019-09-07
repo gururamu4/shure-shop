@@ -43,8 +43,8 @@ export function cartReducer(
         loaded: true
       });
     }
-    case cartActions.CartActions.LOAD_CARTS_FAIL :{
-             return {
+    case cartActions.CartActions.LOAD_CARTS_FAIL: {
+      return {
         ...state,
         entities: {},
         loading: false,
@@ -53,33 +53,33 @@ export function cartReducer(
       };
     }
 
-   case cartActions.CartActions.ADD_CART_SUCCESS:{
-     return cartAdapter.addOne(action.payload,state);
-   }
-   case cartActions.CartActions.ADD_CART_FAIL:{
-     return {
-       ...state,
-       error:action.payload
-     }
-   }  
-     case cartActions.CartActions.UPDATE_CART_SUCCESS: {
-    return cartAdapter.updateOne(action.payload, state);
-  }
-  case cartActions.CartActions.UPDATE_CART_FAIL: {
-    return {
-      ...state,
-      error: action.payload
-    };
-  }  
-  case cartActions.CartActions.DELETE_CART_SUCCESS:{
-    return cartAdapter.removeOne(action.payload,state);
-  }
-  case cartActions.CartActions.DELETE_CART_FAIL:{
-    return {
-      ...state,
-      error:action.payload
+    case cartActions.CartActions.ADD_CART_SUCCESS: {
+      return cartAdapter.addOne(action.payload, state);
     }
-  }
+    case cartActions.CartActions.ADD_CART_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+    case cartActions.CartActions.UPDATE_CART_SUCCESS: {
+      return cartAdapter.updateOne(action.payload, state);
+    }
+    case cartActions.CartActions.UPDATE_CART_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      };
+    }
+    case cartActions.CartActions.DELETE_CART_SUCCESS: {
+      return cartAdapter.removeOne(action.payload, state);
+    }
+    case cartActions.CartActions.DELETE_CART_FAIL: {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
 
     default: {
       return state;

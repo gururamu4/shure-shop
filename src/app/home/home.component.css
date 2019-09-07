@@ -1,23 +1,22 @@
-
 table {
   width: 100%;
 }
-.toggle{
-  font-size : 250%;
-  padding-right:100px;
+.toggle {
+  font-size: 250%;
+  padding-right: 100px;
 }
 .mat-form-field {
   font-size: 14px;
   width: 100%;
 }
-.hello{
-  border-radius:80%;
-  height:48px;
-  width:48px;
+.hello {
+  border-radius: 80%;
+  height: 48px;
+  width: 48px;
 }
-.image1{
-  height:190px ;  
-    width: calc(100% + 32px);
+.image1 {
+  height: 190px;
+  width: calc(100% + 32px);
 }
 .card {
   border-radius: 2px;
@@ -27,15 +26,15 @@ table {
   position: relative;
   width: 300px;
 }
-mat-icon:hover{
-  color:rgb(58, 183, 141);
+mat-icon:hover {
+  color: rgb(58, 183, 141);
 }
 .app-header-image {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk4NMHqbfe0ncWc3KWDAQZ3A39L-HYptFwAwblcziFa8uWZj9d');
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk4NMHqbfe0ncWc3KWDAQZ3A39L-HYptFwAwblcziFa8uWZj9d");
   background-size: cover;
 }
-.nbs{
-  padding-right:50px;
+.nbs {
+  padding-right: 50px;
 }
 /* <!-- <div class="card card-1">
     <mat-card class="example-card">

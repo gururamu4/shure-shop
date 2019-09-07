@@ -5,20 +5,15 @@ import { HomeService } from './../services/home.service'
 
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
-import { filter } from 'rxjs/operators';
-
-import * as ProductsActions from "./../store/products.actions";
 import { fade, adi } from '../animations/animate';
 import { trigger, state, style, transition, animate, useAnimation } from '@angular/animations';
 import * as _ from 'lodash';
 import { BsNavbarComponent } from '../bs-navbar/bs-navbar.component';
-import { Product } from '../models/products';
 import { Store, select } from '@ngrx/store';
 import { product } from "../models/product"
 import * as productActions from "./../store/products.actions"
 import * as fromProduct from './../store/products.reducer'
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import * as cartActions from "./../store/cart.action"
 import * as fromCart from './../store/cart.reducer'
 import { HttpClient } from '@angular/common/http';

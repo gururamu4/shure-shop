@@ -7,10 +7,15 @@
   width: 100%;
 }
 
-
-.notAllowed{
-  cursor:not-allowed;
+.notAllowed {
+  cursor: not-allowed;
 }
-.loginForm{
+.loginForm {
   width: 50%;
+}
+
+button:disabled {
+  background-color: red;
+  opacity: 0.7;
+  cursor: not-allowed;
 }

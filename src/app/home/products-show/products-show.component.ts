@@ -1,7 +1,6 @@
 import { HomeService } from "./../../services/home.service";
 import { ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/models/products";
 import { product } from "src/app/models/product";
 import { Store, select } from "@ngrx/store";
 import * as productActions from "src/app/store/products.actions";
@@ -16,8 +15,8 @@ export class ProductsShowComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private homeService: HomeService,
-    private store:Store<product>
-  ) {}
+    private store: Store<product>
+  ) { }
   product: any = {};
   productList: product[];
   endProduct: any;
@@ -26,15 +25,13 @@ export class ProductsShowComponent implements OnInit {
       this.product = params;
     });
     this.store.dispatch(new productActions.LoadProduct(this.product.id));
-   let products$ = this.store.pipe(select(fromProduct.getProducts));
-    products$.subscribe(res=>this.productList=res);
-    //console.log(this.productList);
+    let products$ = this.store.pipe(select(fromProduct.getProducts));
+    products$.subscribe(res => this.productList = res);
     for (let prod of this.productList) {
       if (prod.id === this.product.id) {
         this.endProduct = prod;
       }
     }
-    console.log(this.endProduct);
   }
 
   plus(pId): void {

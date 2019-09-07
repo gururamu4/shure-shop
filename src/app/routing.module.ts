@@ -18,61 +18,61 @@ import { AdminAuthGuard } from './guard/admin.auth-gaurd.service';
 import { ProductsShowComponent } from './home/products-show/products-show.component';
 
 const routes: Routes = [
-    { path: "", component: HomeComponent },
-    { path: "home", component: HomeComponent },
-    { path: "shopping-cart", component: ShoppingCartComponent },
-    { path: "order-success", component: OrderSuccessComponent },
-    { path: "login", component: LoginComponent },
-    {
-      path: "my/orders",
-      component: MyOrdersComponent,
-      canActivate: [AuthGaurdService]
-    },
-    {
-      path: "my/orders/:id/:date",
-      component: CancelOrderComponent,
-      canActivate: [AuthGaurdService]
-    },
-    {
-      path: "admin/orders",
-      component: AdminOrdersComponent,
-      canActivate: [AuthGaurdService && AdminAuthGuard]
-    },
+	{ path: "", component: HomeComponent },
+	{ path: "home", component: HomeComponent },
+	{ path: "shopping-cart", component: ShoppingCartComponent },
+	{ path: "order-success", component: OrderSuccessComponent },
+	{ path: "login", component: LoginComponent },
+	{
+		path: "my/orders",
+		component: MyOrdersComponent,
+		canActivate: [AuthGaurdService]
+	},
+	{
+		path: "my/orders/:id/:date",
+		component: CancelOrderComponent,
+		canActivate: [AuthGaurdService]
+	},
+	{
+		path: "admin/orders",
+		component: AdminOrdersComponent,
+		canActivate: [AuthGaurdService && AdminAuthGuard]
+	},
 
-    {
-      path: "admin/products",
-      component: AdminProductsComponent,
-      canActivate: [AuthGaurdService && AdminAuthGuard]
-    },{
-      path: "check-out",
-      component: CheckOutComponent,
-      canActivate: [AuthGaurdService ]
-    },
-    {
-      path: "payment",
-      component: PaymentComponent,
-      canActivate: [AuthGaurdService ]
-    },
-    {
-      path: "admin/products/new",
-      component: NewProductComponent,
-      canActivate: [AuthGaurdService && AdminAuthGuard]
-    },
+	{
+		path: "admin/products",
+		component: AdminProductsComponent,
+		canActivate: [AuthGaurdService && AdminAuthGuard]
+	}, {
+		path: "check-out",
+		component: CheckOutComponent,
+		canActivate: [AuthGaurdService]
+	},
+	{
+		path: "payment",
+		component: PaymentComponent,
+		canActivate: [AuthGaurdService]
+	},
+	{
+		path: "admin/products/new",
+		component: NewProductComponent,
+		canActivate: [AuthGaurdService && AdminAuthGuard]
+	},
 
-    {
-      path: "admin/products/:id",
-      component: SelectedComponent,
-      canActivate: [AuthGaurdService && AdminAuthGuard]
-    },
-    { path: "login", component: LoginComponent },
-    { path: "register", component: RegisterComponent },
-    { path: "products/:id", component: ProductsShowComponent }
-   ];
+	{
+		path: "admin/products/:id",
+		component: SelectedComponent,
+		canActivate: [AuthGaurdService && AdminAuthGuard]
+	},
+	{ path: "login", component: LoginComponent },
+	{ path: "register", component: RegisterComponent },
+	{ path: "products/:id", component: ProductsShowComponent }
+];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [
-      RouterModule
-   ] 
+	imports: [RouterModule.forRoot(routes)],
+	exports: [
+		RouterModule
+	]
 })
 export class RoutingModule { };

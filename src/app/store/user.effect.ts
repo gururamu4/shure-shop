@@ -1,10 +1,10 @@
-import {User} from '.././models/user'
+import { User } from '.././models/user'
 import { Injectable } from "@angular/core";
 
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 
-import { Observable, of, observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { map, mergeMap, catchError } from "rxjs/operators";
 
 import { userService } from "../services/user.service";
@@ -15,7 +15,7 @@ export class userEffect {
   constructor(
     private actions$: Actions,
     private userService: userService
-  ) {}
+  ) { }
 
   @Effect()
   loadUsers$: Observable<Action> = this.actions$.pipe(
@@ -52,12 +52,12 @@ export class userEffect {
 
 
   @Effect()
-  addUser$:Observable<Action>=this.actions$.pipe(
+  addUser$: Observable<Action> = this.actions$.pipe(
     ofType<userActions.AddUser>(userActions.userActions.ADD_USER),
-    map((action:userActions.AddUser)=>action.payload),
-    mergeMap((User:User)=>this.userService.createUser(User)),
-    map((newUser:User)=>
-    new userActions.AddUserSuccess(newUser)
+    map((action: userActions.AddUser) => action.payload),
+    mergeMap((User: User) => this.userService.createUser(User)),
+    map((newUser: User) =>
+      new userActions.AddUserSuccess(newUser)
     )
   )
 

@@ -1,36 +1,124 @@
 <form [formGroup]="registrationForm">
-        <div  style="text-align:center" class="app-container">
-        <mat-form-field>
-          <input matInput required name="email" width=70% placeholder="Enter valid EmailId" formControlName="email" type="email">
-          <mat-hint>enter correct email format</mat-hint>
-        </mat-form-field>
+  <div style="text-align:center" class="app-container">
+    <mat-form-field>
+      <input
+        matInput
+        required
+        name="email"
+        width="70%"
+        placeholder="Enter valid EmailId"
+        formControlName="email"
+        type="email"
+      />
+      <mat-hint
+        color="warn"
+        *ngIf="!username.valid && username.touched"
+        align="center"
+      >
+        <mat-error *ngIf="email.hasError('minlength')">
+          min 4 chars
+        </mat-error>
+        <mat-error *ngIf="registrationForm.controls.email.hasError('pattern')">
+          enter correct email format
+        </mat-error>
+      </mat-hint>
+    </mat-form-field>
 
-
-        <mat-form-field>
-            <input matInput  name="username" placeholder="Username"  formControlName="username"  width=70% >
-          <mat-hint>one special characters,alphanumeric with one capital</mat-hint>
-          </mat-form-field>
-          <mat-form-field >
-              <input matInput type="password" name="password" formControlName="password"  width=70% placeholder="Enter valid password">
-            </mat-form-field>
-            <mat-form-field >
-                <input matInput type="password" name="password1" formControlName="password1"  width=70% placeholder="Confirm Ur password">
-              </mat-form-field>
-            <mat-form-field >
-                <input matInput required name="url" formControlName="url"  width=70% placeholder="Enter valid imgUrl">
-             
-              </mat-form-field>
-        <mat-form-field>
-          <mat-select required name="age" formControlName="age" placeholder="Select me">
-            <mat-option value="90s kids">1990-2000</mat-option>
-            <mat-option value="90s kids">1980-1990</mat-option>
-            <mat-option value="90s kids">1970-1980</mat-option>
-            <mat-option value="90s kids">2000</mat-option>
-          </mat-select>
-        </mat-form-field>
-              <button  mat-raised-button color="accent" (click)="RegisterNewUser()" >Register</button>
-
-      </div>
-        </form>
-
-        
+    <mat-form-field>
+      <input
+        matInput
+        name="username"
+        placeholder="Username"
+        formControlName="username"
+        width="70%"
+      />
+      <mat-hint
+        color="warn"
+        *ngIf="!username.valid && username.touched"
+        align="center"
+      >
+        <mat-error *ngIf="username.hasError('minlength')">
+          min 4 chars
+        </mat-error>
+        <mat-error *ngIf="username.hasError('maxlength')">
+          max 15 chars
+        </mat-error>
+        <mat-error *ngIf="username.hasError('cannotContainSpace')">
+          cannot contain space
+        </mat-error>
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        name="password"
+        formControlName="password"
+        width="70%"
+        placeholder="Enter valid password"
+      />
+      <mat-hint
+        color="warn"
+        *ngIf="!password.valid && password.touched"
+        align="center"
+      >
+        <mat-error *ngIf="password.hasError('minlength')">
+          min 4 chars
+        </mat-error>
+        <mat-error *ngIf="password.hasError('maxlength')">
+          max 15 chars
+        </mat-error>
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        name="password1"
+        formControlName="password1"
+        width="70%"
+        placeholder="Confirm Ur password"
+      />
+      <mat-hint color="warn" *ngIf="password1.touched" align="center">
+        <mat-error *ngIf="password1.hasError('minlength')">
+          min 4 chars
+        </mat-error>
+        <mat-error *ngIf="password1.hasError('maxlength')">
+          max 15 chars
+        </mat-error>
+        <mat-error *ngIf="password.value !== password1.value">
+          password & confirm password doesn't match
+        </mat-error>
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        name="url"
+        formControlName="url"
+        width="70%"
+        placeholder="Enter valid imgUrl"
+      />
+    </mat-form-field>
+    <button
+      color="warn"
+      style="cursor: not-allowed"
+      *ngIf="!registrationForm.valid"
+      mat-flat-button
+    >
+      Register User
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      *ngIf="registrationForm.valid"
+      (click)="RegisterNewUser()"
+    >
+      Register
+    </button>
+    <br /><br />
+    <button mat-raised-button color="accent" routerLink="/login">
+      Already Registered? Login
+    </button>
+  </div>
+</form>
