@@ -7,7 +7,6 @@ import {  fade1 } from '../animations/animate';
 import { Router } from '@angular/router';
 import {Store,select} from "@ngrx/store";
 import * as fromCart from "../store/cart.reducer";
-import * as cartActions from '../store/cart.action';
 import { cart } from '../models/cart';
 @Component({
   selector: 'app-check-out',

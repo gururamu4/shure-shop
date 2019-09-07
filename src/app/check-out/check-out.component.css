@@ -7,8 +7,10 @@
     position: relative;
     width: 25%;
     float:right;
+    color: skyblue;
   }
   .card1{
+    color: skyblue;
     padding-top: 0;
     border-radius: 2px;
     display: inline-block;

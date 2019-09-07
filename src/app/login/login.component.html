@@ -6,7 +6,7 @@
    formControlName="username"
     name="username"
     id="username"
-    width=70%
+    width=50%
     required
     uniqueUsername
     placeholder="Enter Username">
@@ -16,42 +16,44 @@
    
   
     <mat-error *ngIf="username.hasError('minlength')">
-    min 3 chars
+    min 4 chars
    </mat-error>
    <mat-error *ngIf="username.hasError('maxlength')">
-    max 10 chars
+    max 15 chars
    </mat-error>
    <mat-error  *ngIf="username.hasError('cannotContainSpace')">
     cannot contain space
    </mat-error>
    
    </mat-hint>
-   <mat-error *ngIf="!username.hasError('asyncUnique')">
-      Username is not unique
-     </mat-error> 
 
 </mat-form-field>
-<mat-form-field hintLabel="Max 10 characters">
+<mat-form-field>
     <input matInput
      formControlName="password"
       name="password"
       id="password"
-       width=70% 
+       width=50% 
        required
        placeholder="Enter password"
        type="{{pass ? 'password' : 'text' }}">
        <mat-icon matSuffix (click)="hide()">visibility</mat-icon>
-    <mat-hint color="warn" align="end" ></mat-hint>
+    <mat-hint color="warn" *ngIf="!password.valid && password.touched"
+    align="center" >
+      <mat-error *ngIf="password.hasError('minlength')">
+        min 4 chars
+       </mat-error>
+       <mat-error *ngIf="password.hasError('maxlength')">
+        max 15 chars
+       </mat-error>
+    </mat-hint>
    
   </mat-form-field>
 <mat-error class="warn" *ngIf="username.touched&&!username.valid||!password.valid&&password.touched">
-  WRONG USERNAME 
+  WRONG USERNAME OR PASSWORD
 </mat-error>
 <button  (click)="login()" mat-flat-button color="accent" >login
 </button>
-<div *ngIf="username.touched&&password.touched" >
-
-</div>
 <br>
 <br>
 

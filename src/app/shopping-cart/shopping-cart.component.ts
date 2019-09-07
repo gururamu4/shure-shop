@@ -1,13 +1,8 @@
 // import { Component, OnInit } from '@angular/core';
-// import {NgRedux, select, } from 'ng2-redux';
-// import { IAppState } from './shop';
-import { Component, OnInit, ViewChild, OnChanges, DoCheck } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, Sort } from '@angular/material';
-import { Product } from '../models/products';
-import { User } from '../bs-navbar/User';
-import { select,Store } from "@ngrx/store";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { select, Store } from "@ngrx/store";
 import { cart } from '../models/cart';
-import * as cartActions from '../store/cart.action'
 import * as fromCart from '../store/cart.reducer'
 
 import * as fromUser from '../store/user.reducer'
@@ -18,47 +13,33 @@ import * as fromUser from '../store/user.reducer'
 })
 export class ShoppingCartComponent implements OnInit {
 
-cart1;
-displayedColumns: string[] = ['pId', 'quantity', 'price', 'price*quantity'];
-private cart:any;
-private currentUser;
+  cart1;
+  displayedColumns: string[] = ['pId', 'quantity', 'price', 'price*quantity'];
+  private cart: any;
+  private currentUser;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private store:Store<cart>) {
-    
-  }
- ;sc1;
+  constructor(private store: Store<cart>) {
+
+  };
+  sc1;
   ngOnInit() {
-    let sc;
-    this.store.pipe(select(fromUser.getCurrentUserId)).subscribe(res=>this.currentUser=res)
-    this.store.pipe(select(fromCart.getCarts)).subscribe(res=>(this.cart)=(res.filter(product=>product.userId==this.currentUser)));
-    this.cart1=new MatTableDataSource(this.cart)
-     this.cart1.paginator = this.paginator;
-     this.cart1.sort = this.sort;
+    this.store.pipe(select(fromUser.getCurrentUserId)).subscribe(res => this.currentUser = res)
+    this.store.pipe(select(fromCart.getCarts)).subscribe(res => (this.cart) = (res.filter(product => product.userId == this.currentUser)));
+    this.cart1 = new MatTableDataSource(this.cart)
+    this.cart1.paginator = this.paginator;
+    this.cart1.sort = this.sort;
     console.log(this.cart1)
   }
-  
+
   applyFilter(filterValue: string) {
     this.cart.filter = filterValue.trim().toLowerCase();
 
   }
 }
 
-
-/** Builds and returns a new User. */
-// function createNewUser(id: number): UserData {
-//   const name =
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString()
-//   };
-// }
 
 
 

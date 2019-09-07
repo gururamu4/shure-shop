@@ -35,10 +35,8 @@ export class LoginComponent implements OnInit {
   loginForm;
   constructor(private router: Router,fb:FormBuilder,private http: Http,private signupService:SignupService,private store:Store<User>) {
     this.loginForm=fb.group({
-      username:['',[Validators.minLength(5),Validators.maxLength(15)]
-                    
-                  ],
-      password:['',[Validators.required]]
+      username:['',[Validators.minLength(4),Validators.maxLength(15)]],
+      password:['',[Validators.minLength(4),Validators.maxLength(15)]]
     })
   }
   
@@ -66,17 +64,17 @@ export class LoginComponent implements OnInit {
           // let payload={subject:userL.id}
           // jwt.sign(payload,'secretkey');
     this.store.dispatch(new userActions.LoadUser(userL.id))
-    sessionStorage.setItem('currentUser',userL.id)
-        sessionStorage.setItem('currentuser',CryptoJS.AES.encrypt(JSON.stringify(userL.id), 'secret key 123'));
+    localStorage.setItem('currentUser',userL.id)
+        localStorage.setItem('currentuser',CryptoJS.AES.encrypt(JSON.stringify(userL.id), 'secret key 123'));
          result=true;
-
+          this.router.navigate(['/'])
 //localStorage.setItem('ss',(SHA256(userL.id)));
 //localStorage.setItem('sa',CryptoJS.AES.encrypt(JSON.stringify(userL.id), 'secret key 123'));
 //console.log(ciphertext)
     // var dec=CryptoJS.AES.decrypt(localStorage.getItem('sa').toString(), 'secret key 123');
     // var plaintext = dec.toString(CryptoJS.enc.Utf8);
     // console.log('se',plaintext)
-    // sessionStorage.setItem('dec',plaintext)
+    // localStorage.setItem('dec',plaintext)
         
           // try {
           // } catch (e) {
