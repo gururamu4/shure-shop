@@ -120,9 +120,7 @@ export class HomeComponent implements OnInit {
     // var plaintext = dec.toString(CryptoJS.enc.Utf8);
     // var dec=CryptoJS.AES.decrypt(localStorage.getItem('sa').toString(), 'secret key 123');
     // console.log('pt',plaintext)
-    var dec = CryptoJS.AES.decrypt(localStorage.getItem('currentuser').toString(), 'secret key 123');
-    var plaintext = dec.toString(CryptoJS.enc.Utf8);
-    console.log('plainT', plaintext)
+    var dec = CryptoJS.AES.decrypt(localStorage.getItem('currentUser').toString(), 'secret key 123');
   }
 
   applyFilter(filterValue: string) {
