@@ -54,7 +54,7 @@ export class BsNavbarComponent implements OnInit {
       message => (this.message = message)
     );
   }
-  private otherTheme: boolean = false;
+  otherTheme: boolean = false;
   changeTheme(): boolean {
     this.otherTheme = !this.otherTheme;
     localStorage.setItem("otherTheme", JSON.stringify(this.otherTheme));
