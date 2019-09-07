@@ -26,19 +26,19 @@ export class RegisterComponent {
       url: ['']
     })
   }
-  get username(): string {
+  get username() {
     return this.registrationForm.get('username');
   }
-  get url(): string {
+  get url() {
     return this.registrationForm.get('url');
   }
-  get password(): string {
+  get password() {
     return this.registrationForm.get('password');
   }
-  get password1(): string {
+  get password1() {
     return this.registrationForm.get('password1');
   }
-  get email(): string {
+  get email() {
     return this.registrationForm.get('email')
   }
   RegisterNewUser() {
