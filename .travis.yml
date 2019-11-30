@@ -19,3 +19,4 @@ cache:
 
 script:
   - ng build --prod
+  - ng test
