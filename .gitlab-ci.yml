@@ -7,7 +7,6 @@ deploy_stage:
   only:
     - master
   script:
-    - rm ./package-lock.json
     - npm install
     - npm run build:prod
     - npm run test
