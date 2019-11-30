@@ -1,6 +1,13 @@
 language: node_js
 node_js:
- - "8.11"
+ - "lts/*"
+
+cache:
+  # cache both npm modules and Cypress binary
+  directories:
+    - ~/.npm
+    - ./node_modules
+    - ~/.cache
 
 branches:
   only:
@@ -19,4 +26,4 @@ cache:
 
 script:
   - ng build --prod
-  - ng test
+  - ng test --watch=false
