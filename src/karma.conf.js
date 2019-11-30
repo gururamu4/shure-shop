@@ -1,14 +1,7 @@
-// karma.conf.js
+process.env.CHROME_BIN = require('puppeteer').executablePath()
+
 module.exports = function(config) {
   config.set({
-    browsers: ['Chrome', 'Chrome_without_security'], // You may use 'ChromeCanary', 'Chromium' or any other supported browser
-
-    // you can define custom flags
-    customLaunchers: {
-      Chrome_without_security: {
-        base: 'Chrome',
-        flags: ['--disable-web-security', '--disable-site-isolation-trials']
-      }
-    }
+    browsers: ['ChromeHeadless']
   })
 }
