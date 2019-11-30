@@ -4,8 +4,6 @@ cache:
     - node_modules/
 
 deploy_stage:
-  stage: deploy
-  environment: Stage
   only:
     - master
   script:
