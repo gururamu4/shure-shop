@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CancelOrderComponent } from './cancel-order.component';
+import { MatStepperModule } from "@angular/material/stepper";
+import { MatFormFieldModule, MatSelectModule, MatIconModule, MatCardModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('CancelOrderComponent', () => {
   let component: CancelOrderComponent;
@@ -8,7 +11,9 @@ describe('CancelOrderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CancelOrderComponent ]
+      declarations: [ CancelOrderComponent ],
+      imports: [ MatStepperModule, MatFormFieldModule,
+      FormsModule, ReactiveFormsModule, MatSelectModule, MatIconModule, MatCardModule ]
     })
     .compileComponents();
   }));
