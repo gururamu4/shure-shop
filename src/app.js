@@ -1,1 +1,1 @@
-console.log('app loaded')
+console.log('shure app loaded')
