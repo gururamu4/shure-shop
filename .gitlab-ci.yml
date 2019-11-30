@@ -8,8 +8,8 @@ deploy_stage:
     - master
   script:
     - rm ./package-lock.json
+    - npm install
     - npm run build:prod
     - npm run test
-    - npm install
     - ./node_modules/@angular/cli/bin/ng test --progress false --single-run=true --watch=false
 
