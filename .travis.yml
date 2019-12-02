@@ -1,29 +1,29 @@
-language: node_js
-node_js:
- - "lts/*"
+# language: node_js
+# node_js:
+#  - "lts/*"
 
-cache:
-  # cache both npm modules and Cypress binary
-  directories:
-    - ~/.npm
-    - ./node_modules
-    - ~/.cache
+# cache:
+#   # cache both npm modules and Cypress binary
+#   directories:
+#     - ~/.npm
+#     - ./node_modules
+#     - ~/.cache
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
-addons:
-  chrome: stable
+# addons:
+#   chrome: stable
 
-# before_script:
-#   - yarn global add @angular/cli
+# # before_script:
+# #   - yarn global add @angular/cli
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
+# cache:
+#   yarn: true
+#   directories:
+#     - node_modules
 
-script:
-  - ng build --prod
-  - ng test --watch=false
+# script:
+#   - ng build --prod
+#   - ng test --watch=false
