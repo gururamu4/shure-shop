@@ -1,4 +1,4 @@
 # shure-shop
 A modal shopping cart application made
 
-by gururamu
+by guru ramu
