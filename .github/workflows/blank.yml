@@ -1,38 +1,38 @@
-# name: Build
-# on:
-#   push:
-#     branches:
-#       - master
-#   pull_request:
-#     branches:
-#       - master
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         node-version: [10.17.0]
+name: Build
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.17.0]
 
-#     steps:
-#       - uses: actions/checkout@v1
+    steps:
+      - uses: actions/checkout@v1
 
-#       - name: Node $
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 10.17.0
+      - name: Node $
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.17.0
 
-#       - name: Cache node modules
-#         uses: actions/cache@v1
-#         with:
-#           path: node_modules
-#           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.OS }}-build-${{ env.cache-name }}-
-#             ${{ runner.OS }}-build-
-#             ${{ runner.OS }}-
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
 
-#       - name: npm install and npm run build
-#         run: |
-#           npm install
-#           npm install @angular/cli -g
-#           npm run build:ci 
+      - name: npm install and npm run build
+        run: |
+          npm install
+          npm install @angular/cli -g
+          npm run build:ci 
